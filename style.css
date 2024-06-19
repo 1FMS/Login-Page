@@ -1,0 +1,101 @@
+body{
+    
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "left right";
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.left-side{
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+    "title"
+    "forms";
+
+    grid-area: left;
+    margin-left: 130px;
+}
+
+.login-area{
+    grid-area: forms;
+}
+
+.right-side{
+    grid-area: right;
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.box-formulario{
+    width: 45%;
+    margin: 10px;
+}
+
+#senha{
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+
+h1{
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+hr{
+    width: 10%;
+    position: absolute;
+}
+
+
+
+p{
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+}
+
+input{
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    background: #FAFDFF;
+    border: 1px solid #E8E8E8;
+    font-family: "Poppins", sans-serif;
+    font-size:larger;
+    padding: 5px;
+}
+
+
+
+button{
+    box-shadow: 6px 32px 65px 0px rgba(255,183,213,1);
+    -webkit-box-shadow: 6px 32px 65px 0px rgba(255,183,213,1);
+    -moz-box-shadow: 6px 32px 65px 0px rgba(255,183,213,1);
+    background-color: #FFB7D5;
+    border-color: #FFB7D5;
+    box-shadow:inset;
+    border-radius: 30px;
+    width: 80px;
+    height: 80px;
+    
+}
+
+#image{
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: 100%; /* Mantém a proporção da imagem */
+}

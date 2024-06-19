@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario</title>
+</head>
+<body>
+
+    <div class="left-side">
+        <div class="head">
+             <header class="title">
+                <h1>Cadastre-se</h1>
+                <hr>
+            </header>
+        </div>
+        <div class="login-area">
+            <div class="forms-area">
+                <form action="index.php" method="post" class="box">
+                    <div class="box-formulario">
+                        <p>Nome</p>
+                        <input placeholder="Digite seu nome" type="text" name="nome" id="" class="caixa-forms">
+                    </div>
+
+                    <div class="box-formulario" id="email">
+                        <p>Email</p>
+                        <input placeholder="Digite seu email" type="email" name="email"  class="caixa-forms">
+                    </div>
+                        
+                    <div class="box-formulario" id="senha">
+                        <p>Senha</p>
+                        <input placeholder="****" type="password" name="senha" class="caixa-forms">
+                    </div>
+                        
+                    <button type="submit"><img src="prosseguir.svg" alt="" srcset=""></button>
+
+                    
+                </form>
+                
+            </div>
+        </div>
+    </div>
+       
+    <div class="right-side">
+        <img src="img.svg" id="image">
+    </div>
+    
+    
+</body>
+</html>
+
+
