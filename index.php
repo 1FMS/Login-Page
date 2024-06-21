@@ -1,3 +1,16 @@
+<?php
+if(count($_POST)>0){
+   include("bd.php");
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $sql_code = "INSERT INTO usuario(nome, email, senha) VALUES('$nome','$email', '$senha')";
+    $mysqli -> query($sql_code);
+}
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,6 +37,11 @@
                     <div class="box-formulario">
                         <p>Nome</p>
                         <input placeholder="Digite seu nome" type="text" name="nome" id="" class="caixa-forms">
+                        <?php
+                        if(empty($nome)){
+                            echo("preencha seu nome");
+                        }
+                        ?>
                     </div>
 
                     <div class="box-formulario" id="email">
@@ -36,7 +54,7 @@
                         <input placeholder="****" type="password" name="senha" class="caixa-forms">
                     </div>
                         
-                    <button type="submit"><img src="prosseguir.svg" alt="" srcset=""></button>
+                    <button name="enviado" type="submit"><img src="prosseguir.svg" alt="" srcset=""></button>
 
                     
                 </form>
@@ -48,9 +66,8 @@
     <div class="right-side">
         <img src="img.svg" id="image">
     </div>
+
     
     
 </body>
 </html>
-
-
