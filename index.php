@@ -16,19 +16,9 @@ if(count($_POST)>0){
         $mysqli -> query($sql_code);
         if(isset($_POST['enviado'])){
         header('Location:login.php');
-
-}
-    }else{
-        $span_email = "Email cadastrado já existe";
     }
-    
-
-
-    
+}   
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -55,20 +45,23 @@ if(count($_POST)>0){
             <div class="forms-area">
                 <form action="" method="post" class="box">
                     <div class="box-formulario">
-                        <p>Nome</p>
+                        <p class="nome_campo">Nome</p>
                         <input placeholder="Digite seu nome" type="text" name="nome" id="" class="caixa-forms">
                     </div>
 
                     <div class="box-formulario" id="email">
-                        <p>Email</p>
+                        <p class="nome_campo">Email</p>
                         <input placeholder="Digite seu email" type="email" name="email"  class="caixa-forms">
                         <?php
-                            echo $span_email;
+                            if(isset($verify_email)){
+                                echo "<p style='color:red'>Email já cadastrado no banco de dados</p>";
+                            }
+                        
                         ?>
                     </div>
                         
                     <div class="box-formulario" id="senha">
-                        <p>Senha</p>
+                        <p class="nome_campo">Senha</p>
                         <input placeholder="****" type="password" name="senha" class="caixa-forms">
                     </div>
                         
