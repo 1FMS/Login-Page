@@ -1,14 +1,34 @@
 <?php
+
 if(count($_POST)>0){
-   include("bd.php");
+    include("bd.php");
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
-    $sql_code = "INSERT INTO usuario(nome, email, senha) VALUES('$nome','$email', '$senha')";
-    $mysqli -> query($sql_code);
-}
+    $sql_code_verify_email = "SELECT email FROM usuario WHERE email='$email' ";
+    $sql_exec_verify = $mysqli-> query($sql_code_verify_email);
     
+    $verify_email = $sql_exec_verify->fetch_assoc();
+
+    if($verify_email == []){
+        $sql_code = "INSERT INTO usuario(nome, email, senha) VALUES('$nome','$email', '$senha')";
+        $mysqli -> query($sql_code);
+        if(isset($_POST['enviado'])){
+        header('Location:login.php');
+
+}
+    }else{
+        $span_email = "Email cadastrado já existe";
+    }
+    
+
+
+    
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -33,20 +53,18 @@ if(count($_POST)>0){
         </div>
         <div class="login-area">
             <div class="forms-area">
-                <form action="index.php" method="post" class="box">
+                <form action="" method="post" class="box">
                     <div class="box-formulario">
                         <p>Nome</p>
                         <input placeholder="Digite seu nome" type="text" name="nome" id="" class="caixa-forms">
-                        <?php
-                        if(empty($nome)){
-                            echo("preencha seu nome");
-                        }
-                        ?>
                     </div>
 
                     <div class="box-formulario" id="email">
                         <p>Email</p>
                         <input placeholder="Digite seu email" type="email" name="email"  class="caixa-forms">
+                        <?php
+                            echo $span_email;
+                        ?>
                     </div>
                         
                     <div class="box-formulario" id="senha">
