@@ -47,15 +47,26 @@ if(count($_POST)>0){
                     <div class="box-formulario">
                         <p class="nome_campo">Nome</p>
                         <input placeholder="Digite seu nome" type="text" name="nome" id="" class="caixa-forms">
+                        <?php
+                            if(isset($_POST['nome'])){
+                                echo "<p style='color:red'>Preencha o campo</p>";
+                            }
+                        ?>
                     </div>
 
                     <div class="box-formulario" id="email">
                         <p class="nome_campo">Email</p>
                         <input placeholder="Digite seu email" type="email" name="email"  class="caixa-forms">
                         <?php
-                            if(isset($verify_email)){
+                            if(isset($_POST['email'])){
+                                echo "<p style='color:red'>Preencha o campo</p>";
+                            }elseif(isset($verify_email)){
                                 echo "<p style='color:red'>Email já cadastrado no banco de dados</p>";
                             }
+                                
+                            
+                            
+                            
                         
                         ?>
                     </div>
@@ -63,6 +74,11 @@ if(count($_POST)>0){
                     <div class="box-formulario" id="senha">
                         <p class="nome_campo">Senha</p>
                         <input placeholder="****" type="password" name="senha" class="caixa-forms">
+                        <?php
+                            if(isset($_POST['senha'])){
+                                echo "<p style='color:red'>Preencha o campo</p>";
+                            }
+                        ?>
                     </div>
                         
                     <button name="enviado" type="submit"><img src="prosseguir.svg" alt="" srcset=""></button>

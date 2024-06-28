@@ -5,18 +5,25 @@
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $sql_code = "SELECT senha FROM usuario where email='$email' LIMIT 1";
+        $sql_code = "SELECT * FROM usuario where email='$email'";
         $sql_exec = $mysqli -> query($sql_code);
         $usuario = $sql_exec->fetch_assoc();
 
         $usuario_senha = $usuario['senha'];
-        echo "var_dump($usuario_senha)";
+        $usuario_id = $usuario['id_user'];
+        
+        
+        
 
         if (password_verify($senha, $usuario_senha)) {
-            echo "Está logado!";
+            if(!isset($_SESSION)){
+                session_start();
+            }
+            $_SESSION['usuario'] = $usuario_id;
+            header('Location:main.php');
+            
         } else {
             echo "Senha incorreta.";
-            var_dump($senha, $usuario_senha);
         }
 
         
