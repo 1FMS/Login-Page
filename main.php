@@ -26,7 +26,7 @@
     <h1>Bem-vindo, <?php echo $usuario['nome']?></h1>
     <form action="" method="get">
         <button type="submit" method="get" name="criar_treinamento">Criar Treinamento</button>
-        <button type="submit" method="get">Acessar Treinamentos</button>
+        <button type="submit" method="get" name="acessar_treinamento">Acessar Treinamentos</button>
     </form>
     <?php
         if(isset($_GET['criar_treinamento'])){
@@ -100,14 +100,27 @@
                 header('Location: main.php');
             }
           }
-
-
-            
-            
-
             
         }
     ?>
-    
+
+    <?php
+        if(isset($_GET['acessar_treinamento'])){
+            $sql_code_acessar_treinamento = "SELECT * FROM treinamento";
+            $sql_exec_acessar_treinamento = $mysqli->query($sql_code_acessar_treinamento);
+        
+
+        while($dados_treinamento = $sql_exec_acessar_treinamento->fetch_assoc()){
+            $nome_treinamento = $dados_treinamento['nome_treinamento'];
+            
+    ?>
+            <form action="" method="get">
+            <button type="submit" name="bt_treinamento"><?php echo $nome_treinamento?></button>
+            </form> 
+        
+    <?php
+        }
+        }
+    ?>
 </body>
 </html>
