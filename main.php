@@ -108,19 +108,25 @@
         if(isset($_GET['acessar_treinamento'])){
             $sql_code_acessar_treinamento = "SELECT * FROM treinamento";
             $sql_exec_acessar_treinamento = $mysqli->query($sql_code_acessar_treinamento);
+            
         
 
         while($dados_treinamento = $sql_exec_acessar_treinamento->fetch_assoc()){
             $nome_treinamento = $dados_treinamento['nome_treinamento'];
+            $id_treinamento = $dados_treinamento['id_treinamento'];
+            
+            
             
     ?>
-            <form action="" method="get">
-            <button type="submit" name="bt_treinamento"><?php echo $nome_treinamento?></button>
-            </form> 
-        
+            <form action="treinamento.php" method="get">
+                <input type="hidden" name="id_treinamento" value="<?php echo $id_treinamento; ?>">
+                <button type="submit"><?php echo $nome_treinamento?></button>
+            </form>
     <?php
         }
         }
+        
+        
     ?>
 </body>
 </html>
